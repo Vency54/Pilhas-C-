@@ -69,32 +69,6 @@ int topo(Pilha *p)
 	return p->elementos[p->qtde - 1];
 }
 
-/*Pilha* merge(Pilha *p1, Pilha *p2)
-{
-	Pilha *nova = init();
-	for(int i = 0; i < p1-> qtde; i++)
-	{
-		push(nova, p1->elementos[i]);
-	}
-	for(int i = 0; i < p2-> qtde; i++)
-	{
-		push(nova, p2->elementos[i]);
-	}
-	for(int i = 0; i < nova-> qtde; i++)
-	{
-		for(int j = 0; j < nova-> qtde; j++)
-		{
-			if ( nova->elementos[i] < nova->elementos[j])
-			{
-				int ant = nova->elementos[i];
-				nova->elementos[i] = nova->elementos[j];
-				nova->elementos[j] = ant;
-			}
-		}
-	}
-
-	return nova;
-}*/
 
 void freePilha(Pilha *p)
 {
