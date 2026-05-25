@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <clocale>
+#include <climits>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ using namespace std;
 
 struct No
 {
-	float dado;
+	int  dado;
 	struct No *ant;
 };
 
@@ -58,7 +59,7 @@ void print(Pilha *p)
 	cout << "--------------------------" << endl;
 }
 
-void push(Pilha *p, float v)
+void push(Pilha *p, int  v)
 {
 	No *no = new No;
 	no->dado = v;
@@ -66,9 +67,9 @@ void push(Pilha *p, float v)
 	p->topo = no;
 }
 
-float pop(Pilha *p)
+int  pop(Pilha *p)
 {
-	float v = -1;
+	int  v = -1;
 	int podeDesempilhar = (! isEmpty(p));
 	if (podeDesempilhar)
 	{
@@ -104,19 +105,14 @@ int main(int argc, char** argv)
 	setlocale(LC_ALL, "Portuguese_Brazil.1252");
 	Pilha *pilhaPar = init();
 	Pilha *pilhaImpar = init();
-	int valorAnterior = INFINITE;
-
-	cout << "Pilha par vazia: "
-		 << (isEmpty(pilhaPar) ? "Sim" : "Nao")
-		 << endl;
-
-	cout << "Pilha impar vazia: "
-		 << (isEmpty(pilhaImpar) ? "Sim" : "Nao")
-		 << endl;
+	int valorAnterior = INT_MIN;
 
 	int contador = 0;
 
-	for(int i = 0; i < 15; i++)
+	cout << "Digite 30 números em ordem crescente:\n" << endl;
+
+
+	for(int i = 0; i < 30; i++)
 	{
 		int digito;
 		while (true)
@@ -132,10 +128,22 @@ int main(int argc, char** argv)
 				continue;
 			}
 
+			if(entrada == "-")
+			{
+				cout << "Número inválido!" << endl;
+				cout << endl;
+				continue;
+			}
+
 			bool valido = true;
 
 			for(int i = 0; i < entrada.length(); i++)
 			{
+				if(i == 0 && entrada[i] == '-')
+				{
+					continue;
+				}
+
 				if(!isdigit((unsigned char)entrada[i]))
 				{
 					valido = false;
@@ -163,31 +171,34 @@ int main(int argc, char** argv)
 				break;
 			}
 		}
-					if(digito % 2 == 0)
-			{
-				(push(pilhaPar, digito));
-				cout << endl;
-			}
-			else
-			{
-				(push(pilhaImpar, digito));
-				cout << endl;
-			}
+		if(digito % 2 == 0)
+		{
+			(push(pilhaPar, digito));
+			cout << endl;
+		}
+		else
+		{
+			(push(pilhaImpar, digito));
+			cout << endl;
+		}
 
-			valorAnterior = digito;
+		valorAnterior = digito;
 
-			contador++;
+		contador++;
 
-			if(contador == 2)
-			{
-				system("cls");
-				contador = 0;
-			}
+		if(contador == 2)
+		{
+			system("cls");
+			contador = 0;
+		}
 	}
 
 
 	print(pilhaPar);
 	print(pilhaImpar);
+
+	cout << "\nSequência decrescente:\n";
+
 
 	while(!isEmpty(pilhaPar) && !isEmpty(pilhaImpar))
 	{
