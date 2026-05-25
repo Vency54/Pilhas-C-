@@ -4,6 +4,9 @@
 
 using namespace std;
 
+//Nome: Jo√£o Victor Lima Venceslau
+
+
 struct No
 {
 	float dado;
@@ -119,12 +122,12 @@ int main(int argc, char** argv)
 		while (true)
 		{
 			string entrada;
-			cout << "Digite um n˙mero: ";
+			cout << "Digite um n√∫mero: ";
 			getline(cin, entrada);
 			cout << endl;
 			if(entrada.empty())
 			{
-				cout << "O n˙mero n„o pode ser vazio!" << endl;
+				cout << "O n√∫mero n√£o pode ser vazio!" << endl;
 				cout << endl;
 				continue;
 			}
@@ -143,7 +146,7 @@ int main(int argc, char** argv)
 
 			if(!valido)
 			{
-				cout << "Digite apenas n˙meros!" << endl;
+				cout << "Digite apenas n√∫meros!" << endl;
 				cout << endl;
 				continue;
 			}
@@ -152,7 +155,7 @@ int main(int argc, char** argv)
 
 			if(digito <= valorAnterior)
 			{
-				cout << "O n˙mero deve sempre ser maior que o anterior! ";
+				cout << "O n√∫mero deve sempre ser maior que o anterior! ";
 				cout << endl;
 			}
 			else
