@@ -2,7 +2,10 @@
 #include <windows.h>
 using namespace std;
 
-#define MAX 15
+#define MAX 30
+
+//Nome: Jo√£o Victor Lima Venceslau
+
 
 struct Pilha
 {
@@ -115,18 +118,18 @@ int main(int argc, char** argv)
 
 	int contador = 0;
 
-	for(int i = 0; i < 15; i++)
+	for(int i = 0; i < 30; i++)
 	{
 		int digito;
 		while (true)
 		{
 			string entrada;
-			cout << "Digite um n˙mero: ";
+			cout << "Digite um n√∫mero: ";
 			getline(cin, entrada);
 			cout << endl;
 			if(entrada.empty())
 			{
-				cout << "O n˙mero n„o pode ser vazio!" << endl;
+				cout << "O n√∫mero n√£o pode ser vazio!" << endl;
 				cout << endl;
 				continue;
 			}
@@ -145,7 +148,7 @@ int main(int argc, char** argv)
 
 			if(!valido)
 			{
-				cout << "Digite apenas n˙meros!" << endl;
+				cout << "Digite apenas n√∫meros!" << endl;
 				cout << endl;
 				continue;
 			}
@@ -154,7 +157,7 @@ int main(int argc, char** argv)
 
 			if(digito <= valorAnterior)
 			{
-				cout << "O n˙mero deve sempre ser maior que o anterior! ";
+				cout << "O n√∫mero deve sempre ser maior que o anterior! ";
 				cout << endl;
 			}
 			else
