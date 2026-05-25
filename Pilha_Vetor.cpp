@@ -71,10 +71,6 @@ int topo(Pilha *p)
 }
 
 
-void freePilha(Pilha *p)
-{
-	delete p;
-}
 
 int main(int argc, char** argv)
 {
