@@ -87,18 +87,6 @@ int topo(Pilha *p)
 }
 
 
-void freePilha(Pilha *p)
-{
-	No *no;
-	no = p->topo;
-	while (no != NULL)
-	{
-		No *temp = no->ant;
-		delete(no);
-		no = temp;
-	}
-	delete(p);
-}
 
 int main(int argc, char** argv)
 {
