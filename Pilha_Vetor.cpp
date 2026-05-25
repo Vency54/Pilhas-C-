@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <climits>
 using namespace std;
 
 #define MAX 30
@@ -30,7 +31,7 @@ int count(Pilha *p)
 	return (p->qtde);
 }
 
-int push(Pilha *p, float v)
+int push(Pilha *p, int v)
 {
 	int podeEmpilhar = (p->qtde < MAX);
 	if (podeEmpilhar)
@@ -40,7 +41,7 @@ int push(Pilha *p, float v)
 	return podeEmpilhar;
 }
 
-float pop(Pilha *p)
+int pop(Pilha *p)
 {
 	int podeDesempilhar = (p->qtde > 0);
 	int v = -1;
@@ -80,7 +81,7 @@ int main(int argc, char** argv)
 	setlocale(LC_ALL, "Portuguese_Brazil.1252");
 	Pilha *pilhaPar = init();
 	Pilha *pilhaImpar = init();
-	int valorAnterior = INFINITE;
+	int valorAnterior = INT_MIN;
 
 	cout << "Pilha par vazia: "
 		 << (isEmpty(pilhaPar) ? "Sim" : "Nao")
@@ -108,10 +109,23 @@ int main(int argc, char** argv)
 				continue;
 			}
 
+			if(entrada == "-")
+			{
+				cout << "Número inválido!" << endl;
+				cout << endl;
+				continue;
+			}
+
+
 			bool valido = true;
 
 			for(int i = 0; i < entrada.length(); i++)
 			{
+				if(i == 0 && entrada[i] == '-')
+				{
+					continue;
+				}
+
 				if(!isdigit((unsigned char)entrada[i]))
 				{
 					valido = false;
@@ -163,6 +177,8 @@ int main(int argc, char** argv)
 
 	print(pilhaPar);
 	print(pilhaImpar);
+	
+	cout << "\nSequência decrescente:\n";
 
 	while(!isEmpty(pilhaPar) && !isEmpty(pilhaImpar))
 	{
