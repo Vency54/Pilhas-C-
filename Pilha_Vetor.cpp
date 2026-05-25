@@ -83,13 +83,7 @@ int main(int argc, char** argv)
 	Pilha *pilhaImpar = init();
 	int valorAnterior = INT_MIN;
 
-	cout << "Pilha par vazia: "
-		 << (isEmpty(pilhaPar) ? "Sim" : "Nao")
-		 << endl;
-
-	cout << "Pilha impar vazia: "
-		 << (isEmpty(pilhaImpar) ? "Sim" : "Nao")
-		 << endl;
+cout << "Digite 30 números em ordem crescente:\n" << endl;
 
 	int contador = 0;
 
